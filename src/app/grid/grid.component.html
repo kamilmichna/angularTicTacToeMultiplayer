@@ -1,0 +1,3 @@
+<div class="grid-container">
+    <app-cell *ngFor='let cellData of boardState$ | async' class="cell" [cellData]='cellData' (click)="onCellClick(cellData)"></app-cell>
+</div>

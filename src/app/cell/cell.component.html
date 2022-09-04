@@ -1,0 +1,5 @@
+<div class="cell-content">
+    <div *ngIf='cellData.isDisabled' class="disabled-overlay"></div>
+    <img *ngIf='cellData.value === 1' src="assets/x.svg" alt="">
+    <img *ngIf='cellData.value === -1' src="assets/o.svg" alt="">
+</div>
