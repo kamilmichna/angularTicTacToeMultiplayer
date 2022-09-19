@@ -7,7 +7,7 @@ import { CellComponent } from './cell/cell.component';
 import { GameService } from './game.service';
 
 
-const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
+const config: SocketIoConfig = { url: 'http://kamilmichna.ct8.pl/', options: {} };
 
 @NgModule({
   declarations: [

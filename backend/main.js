@@ -1,11 +1,18 @@
-import { Server } from 'socket.io';
-import { createServer } from 'http';
-import { nanoid } from 'nanoid'
+const dotenv = require('dotenv');
+const express = require('express');
+dotenv.config();
+const httpServer = require("http").createServer();
 
-const httpServer = createServer();
-const io = new Server(httpServer, {
+
+// host angular
+if (process.env.prod) {
+  const app = express();
+  app.use('/', express.static('../dist/uttt'));
+  app.listen(80)
+}
+const io = require("socket.io")(httpServer, {
   cors: {
-    origin: "http://localhost:4200",
+    origin: "http://localhost",
     methods: ["GET", "POST"]
   }
 });
@@ -35,6 +42,7 @@ const handleUserAction = (socket) => {
 
 const handleRoomCreating = (socket) => {
   socket.on('createRoom', () => {
+    console.log('123')
     const id = generateNewRoomId();
     socket.join(id);
     socket.emit('returnedRoomId', id);

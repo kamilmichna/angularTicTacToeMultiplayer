@@ -17,7 +17,6 @@ export class ApiService {
   }
   
   sendUserAction(id: number) {
-    alert('123')
     this.socket.emit('userAction', id, this.roomId)
   }
 
