@@ -7,7 +7,7 @@ import { CellComponent } from './cell/cell.component';
 import { GameService } from './game.service';
 
 
-const config: SocketIoConfig = { url: 'localhost:3000', options: {} };
+const config: SocketIoConfig = { url: `${window.location.hostname}:3000`, options: {} };
 
 @NgModule({
   declarations: [
