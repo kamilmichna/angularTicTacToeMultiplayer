@@ -2,17 +2,17 @@ const dotenv = require('dotenv');
 const express = require('express');
 dotenv.config();
 const httpServer = require("http").createServer();
-
+const  nanoid  = require('nanoid')
 
 // host angular
 if (process.env.prod) {
   const app = express();
   app.use('/', express.static('../dist/uttt'));
-  app.listen(80)
+  app.listen(process.env.port)
 }
 const io = require("socket.io")(httpServer, {
   cors: {
-    origin: "http://localhost",
+    origin: "http://localhost:3100",
     methods: ["GET", "POST"]
   }
 });
