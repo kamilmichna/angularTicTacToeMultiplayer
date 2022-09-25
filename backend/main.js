@@ -12,7 +12,7 @@ if (process.env.prod) {
 }
 const io = require("socket.io")(httpServer, {
   cors: {
-    origin: "http://localhost:3100",
+    origin: "*",
     methods: ["GET", "POST"]
   }
 });
